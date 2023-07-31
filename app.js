@@ -253,4 +253,97 @@ document.write("<h2> Question 12 </h2>");
 
 function longestWord(str) {
 
+    var words = str.split(" ");
+
+    var longestWord = "";
+    var longestLength = 0;
+
+    for (var i = 0; i < words.length; i++) {
+
+        var currentWord = words[i]
+        var currentLength = currentWord.length;
+
+        if (currentLength > longestLength) {
+            longestWord = currentWord;
+            longestLength = currentLength;
+        }
+    }
+    return longestWord;
+}
+
+var string = prompt("Enter a string and find the longest word");
+var result = longestWord(string);
+
+document.write("Original string: " + string + "</br>");
+document.write("Longest Word: " + result);
+
+/* QUESTION 13
+13. Write a JavaScript function that accepts two arguments, a
+string and a letter and the function will count the number of
+occurrences of the specified letter within the string.
+Sample arguments : 'JSResourceS.com', 'o'*/
+
+document.write("<h2> Question 13 </h2>");
+
+function occurrences(str, letter) {
+
+    var count = 0;
+
+    for (var i = 0; i < str.length; i++) {
+
+        if (str[i] === letter) {
+            count++;
+        }
+    }
+
+    return count;
+}
+
+var string = prompt("Enter a string");
+var letter = prompt("Enter the letter you want to count it's occurences");
+
+var result = occurrences(string, letter);
+
+document.write("Original string: " + string + "</br>");
+document.write("Letter to count: " + letter + "</br>");
+document.write("Count of Occurences: " + result);
+
+/* QUESTION 14
+14. The Geometrizer
+Create 2 functions that calculate properties of a circle, using
+the definitions here.
+Create a function called calcCircumference:
+• Pass the radius to the function.
+• Calculate the circumference based on the radius, and output
+"The circumference is NN".
+Create a function called calcArea:
+• Pass the radius to the function.
+• Calculate the area based on the radius, and output "The area
+is NN".
+
+Circumference of circle = 2πr
+Area of circle = πr2
+*/
+
+document.write("<h2> Question 14 </h2>");
+
+function calcCircumference(radius) {
+    var circumference = 2 * Math.PI * radius;
+    document.write("The circumference is " + circumference.toFixed(2));
+}
+
+function calcArea(radius) {
+    var area = Math.PI * Math.pow(radius, 2);
+    document.write("The area is " + area.toFixed(2));
+}
+
+var radiusInput = prompt("Enter the radius of the circle:");
+var radius = parseFloat(radiusInput);
+
+if (!isNaN(radius)) {
+    calcCircumference(radius);
+    document.write("<br>");
+    calcArea(radius);
+} else {
+    document.write("Invalid input. Please enter a valid number for the radius.");
 }
